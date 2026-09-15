@@ -9,6 +9,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun CardDemo() {
@@ -40,3 +43,18 @@ fun SwitchDemo() {
 @Preview(showBackground = true)
 @Composable
 fun SwitchDemoPreview() { SwitchDemo() }
+
+@Composable
+fun LazyColumnDemo() {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(10) { index -> Text("Elemento $index", fontSize = 18.sp) }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LazyColumnDemoPreview() { LazyColumnDemo() }
