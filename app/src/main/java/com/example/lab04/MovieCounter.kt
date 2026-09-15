@@ -13,14 +13,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.saveable.rememberSaveable
 
 @Composable
 fun MovieCounter(modifier: Modifier = Modifier) {
-    var count by remember { mutableStateOf(0) }
-    var movieName by remember { mutableStateOf("") }
+    var count by rememberSaveable { mutableStateOf(0) }
+    var movieName by rememberSaveable { mutableStateOf("") }
 
     Column(
         modifier = modifier.padding(16.dp),
@@ -44,7 +44,6 @@ fun MovieCounter(modifier: Modifier = Modifier) {
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
