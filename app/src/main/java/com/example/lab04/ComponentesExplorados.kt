@@ -7,6 +7,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 
 @Composable
 fun CardDemo() {
@@ -24,3 +26,17 @@ fun CardDemo() {
 @Preview(showBackground = true)
 @Composable
 fun CardDemoPreview() { CardDemo() }
+
+@Composable
+fun SwitchDemo() {
+    var activado by remember { mutableStateOf(false) }
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text("Notificaciones")
+        Spacer(modifier = Modifier.width(8.dp))
+        Switch(checked = activado, onCheckedChange = { activado = it })
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SwitchDemoPreview() { SwitchDemo() }
